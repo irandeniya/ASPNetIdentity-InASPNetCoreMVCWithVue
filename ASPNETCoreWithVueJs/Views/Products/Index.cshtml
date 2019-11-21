@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ASPNETCoreWithVueJs.Models.Product>
+@using Newtonsoft.Json;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var isAdmin = User.IsInRole("Admin");
+}
+
+<div id="app">
+    <index-component create-product-url="@Url.Action("Create")" delete-url="@Url.Action("Delete")" 
+                     edit-url="@Url.Action("Edit")" details-url="@Url.Action("Details")" :products="@JsonConvert.SerializeObject(Model)" :is-admin="@isAdmin.ToString().ToLower()"></index-component>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/bundle/Product.js")"></script>
+}

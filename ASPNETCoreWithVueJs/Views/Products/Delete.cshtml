@@ -1,0 +1,15 @@
+﻿@model ASPNETCoreWithVueJs.Models.Product
+@using Newtonsoft.Json;
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="app">
+    <delete-component delete-url="@Url.Action("Delete", "Products", new { Id = Model.Id })" index-url="@Url.Action("Index", "Products")" :product="@JsonConvert.SerializeObject(Model)"></delete-component>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/bundle/Product.js")"></script>
+}

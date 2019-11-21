@@ -1,0 +1,16 @@
+﻿@model ASPNETCoreWithVueJs.Models.Product
+@using Newtonsoft.Json;
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="app">
+    <display-component edit-url="@Url.Action("Edit", "Products", new { Id = Model.Id })" index-url="@Url.Action("Index", "Products")" :product="@JsonConvert.SerializeObject(Model)"></display-component>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/bundle/Product.js")"></script>
+}

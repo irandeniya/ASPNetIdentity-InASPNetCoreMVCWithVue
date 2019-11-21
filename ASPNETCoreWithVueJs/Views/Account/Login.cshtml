@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="app">
+    <login-component login-url="@Url.Action("Login", "Account")"></login-component>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/bundle/Account.js")"></script>
+}
